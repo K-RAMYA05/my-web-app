@@ -32,7 +32,7 @@ app.post('/', function (req, res) {
   });
 })
 
-
-const app = express();    
-app.set('port', process.env.PORT || 3000); // Process.env.PORT change automatically the port IF 3000 port is being used.
-app.listen(app.get('port'), () => console.log(`Node server listening on port ${app.get('port')}!`));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.warn(`App listening on http://localhost:${PORT}`);
+});
