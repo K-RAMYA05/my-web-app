@@ -33,8 +33,6 @@ app.post('/', function (req, res) {
 })
 
 
-const { PORT=3000, LOCAL_ADDRESS='0.0.0.0' } = process.env
-server.listen(PORT, LOCAL_ADDRESS, () => {
-  const address = server.address();
-  console.log('server listening at', address);
-});
+const app = express();    
+app.set('port', process.env.PORT || 3000); // Process.env.PORT change automatically the port IF 3000 port is being used.
+app.listen(app.get('port'), () => console.log(`Node server listening on port ${app.get('port')}!`));
